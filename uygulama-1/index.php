@@ -30,6 +30,12 @@ $kurslar = array(
     )
 );
 
+// atama foreach
+foreach ($kurslar as $key => $value) {
+    $kurslar[$key]["kurs_url"] = strtolower(str_replace([' ','.',','],['-','',''],$kurslar[$key]["baslik"]));
+}
+
+const title = "Popüler Kurslar";
 ?>
 
 <head>
@@ -41,6 +47,9 @@ $kurslar = array(
 </head>
 
 <body>
+    <div class="text-center display-6">
+        <?php echo title; ?>
+    </div>
     <div class="container my-3">
         <?php foreach ($kurslar as $kurs) { ?>
             <div class="card mb-3">
@@ -49,8 +58,10 @@ $kurslar = array(
                         <img src="img/<?php echo $kurs['resim']; ?>" class="img-fluid rounded-start" alt="">
                     </div>
                     <div class="col-9">
-                        <h5 class="card-title"><?php echo $kurs['baslik']; ?></h5>
-                        <p class="card-text"><?php echo $kurs['alt_baslik']; ?></p>
+                        <a href=<?php echo $kurs['kurs_url'] ?>>
+                            <h5 class="card-title"><?php echo $kurs['baslik']; ?></h5>
+                        </a>
+                        <p class="card-text"><?php echo $kurs['alt_baslik'][0].strtolower(substr($kurs['alt_baslik'],1,30)).'...'; ?></p>
                         <p class="card-text">Yayın Tarihi: <?php echo $kurs['yayin_tarihi']; ?></p>
                         <p class="card-text">Yorum Sayısı: <?php echo $kurs['yorum_sayisi']; ?></p>
                         <p class="card-text">Beğeni Sayısı: <?php echo $kurs['begeni_sayisi']; ?></p>
