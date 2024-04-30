@@ -3,7 +3,11 @@
 
 <?php
 
-$categories = array("Programlama","Siber Güvenlik","Veri Analizi");
+$categories = array(
+    array("cat_name" => "Programlama",'active'=>true),
+    array("cat_name" => "Siber Güvenlik",'active'=>false),
+    array("cat_name" => "Veri Analizi",'active'=>false)
+);
 
 $kurslar = array(
     "Kurs_1" => array(
@@ -85,8 +89,8 @@ const title = "Popüler Kurslar";
             <div class="col-3">
                 <ul class="list-group">
                     <?php foreach($categories as $c){ ?>
-                        <li class="list-group-item">
-                            <a href="#" style="text-decoration:none"><?php echo $c; ?></a>
+                        <li class="list-group-item <?php echo ($c['active'] == true) ? "active" : "" ?>">
+                            <a href="#" style="text-decoration:none;color:brown"><?php echo $c['cat_name']; ?></a>
                         </li>
                     <?php } ?>
                 </ul>
