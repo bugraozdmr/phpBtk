@@ -3,8 +3,8 @@
 
     $categories = array(
         array("cat_name" => "Programlama",'active'=>false),
-        array("cat_name" => "Siber Güvenlik",'active'=>true),
-        array("cat_name" => "Veri Analizi",'active'=>false)
+        array("cat_name" => "Siber Güvenlik",'active'=>false),
+        array("cat_name" => "Veri Analizi",'active'=>true)
     );
     
     $kurslar = array(
